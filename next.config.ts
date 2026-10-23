@@ -10,8 +10,6 @@ const nextConfig: NextConfig = {
     images: {
         unoptimized: true,
     },
-    cacheComponents: true,
-    partialPrefetching: true,
     devIndicators: false,
     turbopack: {
         rules: {
