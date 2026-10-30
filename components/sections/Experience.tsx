@@ -1,14 +1,21 @@
+import SectionHeader from "@/components/layout/SectionHeader";
+import Badge from "@/components/ui/Badge";
+
 export default function Experience() {
+    const skills = [
+        "Kotlin",
+        "Kotlin Multiplatform",
+        "Compose Multiplatform",
+        "Ktor",
+        "Koin",
+        "Room",
+        "MVVM",
+        "CI/CD",
+    ];
+
     return (
         <section id="experience" className="section reveal" style={{position: "relative", zIndex: 11}}>
-            <div className="section-header">
-                <div>
-                    <div className="label">Career</div>
-                    <h2 className="section-title">
-                        Work <span>Experience</span>
-                    </h2>
-                </div>
-            </div>
+            <SectionHeader label="Career" title="Work" highlight="Experience" />
             <div className="experience-container">
                 <div className="exp-card">
                     <div className="exp-header">
@@ -34,14 +41,9 @@ export default function Experience() {
                         </li>
                     </ul>
                     <div className="skill-list" style={{marginTop: "2.5rem"}}>
-                        <span className="skill">Kotlin</span>
-                        <span className="skill">Kotlin Multiplatform</span>
-                        <span className="skill">Compose Multiplatform</span>
-                        <span className="skill">Ktor</span>
-                        <span className="skill">Koin</span>
-                        <span className="skill">Room</span>
-                        <span className="skill">MVVM</span>
-                        <span className="skill">CI/CD</span>
+                        {skills.map((skill) => (
+                            <Badge key={skill} variant="skill">{skill}</Badge>
+                        ))}
                     </div>
                 </div>
             </div>

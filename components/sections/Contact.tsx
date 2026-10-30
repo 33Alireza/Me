@@ -1,4 +1,10 @@
 export default function Contact() {
+    const socials = [
+        { name: "GitHub", url: "https://github.com/33alireza" },
+        { name: "Twitter", url: "https://x.com/AlirezaYouDev" },
+        { name: "LinkedIn", url: "https://www.linkedin.com/in/33alireza" },
+    ];
+
     return (
         <section id="contact" className="section reveal" style={{position: "relative", zIndex: 11}}>
             <div className="contact-layout">
@@ -18,36 +24,23 @@ export default function Contact() {
                         Send an Email
                     </a>
                     <div className="socials-grid">
-                        <a
-                            className="social-pill"
-                            href="https://github.com/33alireza"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            GitHub
-                        </a>
-                        <a
-                            className="social-pill"
-                            href="https://x.com/AlirezaYouDev"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Twitter
-                        </a>
-                        <a
-                            className="social-pill"
-                            href="https://www.linkedin.com/in/33alireza"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            LinkedIn
-                        </a>
+                        {socials.map((s) => (
+                            <a
+                                key={s.name}
+                                className="social-pill"
+                                href={s.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {s.name}
+                            </a>
+                        ))}
                     </div>
                 </div>
                 <div>
                     <div className="contact-illustration">
                         <div style={{color: "rgba(255,255,255,0.25)"}}>
-                            // Contact Information
+                            {/* Contact Information */}
                         </div>
                         &nbsp;
                         <div>

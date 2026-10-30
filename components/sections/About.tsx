@@ -1,4 +1,19 @@
+import Badge from "@/components/ui/Badge";
+
 export default function About() {
+    const skills = [
+        "Kotlin",
+        "Jetpack Compose",
+        "Retrofit",
+        "Dagger/Hilt",
+        "MVVM",
+        "Room",
+        "KMP",
+        "CMP",
+        "Ktor",
+        "Git / CI/CD",
+    ];
+
     return (
         <section id="about" className="section reveal" style={{position: "relative", zIndex: 11}}>
             <div className="about-layout">
@@ -35,16 +50,9 @@ export default function About() {
                         <strong>open-source projects</strong> on GitHub.
                     </p>
                     <div className="skill-list">
-                        <span className="skill">Kotlin</span>
-                        <span className="skill">Jetpack Compose</span>
-                        <span className="skill">Retrofit</span>
-                        <span className="skill">Dagger/Hilt</span>
-                        <span className="skill">MVVM</span>
-                        <span className="skill">Room</span>
-                        <span className="skill">KMP</span>
-                        <span className="skill">CMP</span>
-                        <span className="skill">Ktor</span>
-                        <span className="skill">Git / CI/CD</span>
+                        {skills.map((skill) => (
+                            <Badge key={skill} variant="skill">{skill}</Badge>
+                        ))}
                     </div>
                 </div>
             </div>

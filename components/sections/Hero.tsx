@@ -1,3 +1,5 @@
+import Button from "@/components/ui/Button";
+
 export default function Hero() {
     return (
         <section id="hero" className="section reveal" style={{position: "relative", zIndex: 11}}>
@@ -18,12 +20,12 @@ export default function Hero() {
                         open-source projects.
                     </p>
                     <div className="hero-ctas">
-                        <a className="btn-primary" href="#projects">
+                        <Button variant="primary" href="#projects">
                             View My Work
-                        </a>
-                        <a className="btn-ghost" href="#contact">
+                        </Button>
+                        <Button variant="ghost" href="#contact">
                             Contact Me
-                        </a>
+                        </Button>
                     </div>
                 </div>
                 <div className="parallax-wrap">

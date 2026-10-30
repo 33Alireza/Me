@@ -1,14 +1,21 @@
 "use client";
 
-import {useState} from "react";
+import { useState } from "react";
 
-interface NavbarProps {
-    theme: "dark" | "light";
-    toggleTheme: () => void;
-}
-
-export default function Navbar({theme, toggleTheme}: NavbarProps) {
+export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [theme, setTheme] = useState<"dark" | "light">(() => {
+        if (typeof window !== "undefined") {
+            return (document.documentElement.getAttribute("data-theme") as "dark" | "light") || "dark";
+        }
+        return "dark";
+    });
+
+    const toggleTheme = () => {
+        const nextTheme = theme === "dark" ? "light" : "dark";
+        setTheme(nextTheme);
+        document.documentElement.setAttribute("data-theme", nextTheme);
+    };
 
     return (
         <>
@@ -46,7 +53,6 @@ export default function Navbar({theme, toggleTheme}: NavbarProps) {
                 </div>
             </nav>
 
-            {/* Mobile Menu Dropdown */}
             {mobileMenuOpen && (
                 <div className="mobile-menu-dropdown md:hidden">
                     <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
