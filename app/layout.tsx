@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         siteName: "Alireza Yousefzadeh Portfolio",
         images: [
             {
-                url: "/Me/opengraph-image",
+                url: "/opengraph-image",
                 width: 1200,
                 height: 630,
                 alt: "Alireza Yousefzadeh — Software Engineer",
@@ -29,11 +29,11 @@ export const metadata: Metadata = {
         title: "Alireza Yousefzadeh — Software Engineer",
         description: "Software Engineer & Geek - Building high-quality web & mobile applications and contributing to open-source projects.",
         creator: "@AlirezaYouDev",
-        images: ["/Me/opengraph-image"],
+        images: ["/opengraph-image"],
     },
     icons: {
-        icon: "/Me/icon.svg",
-        apple: "/Me/apple-icon",
+        icon: "/icon.svg",
+        apple: "/apple-icon",
     },
 };
 
