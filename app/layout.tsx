@@ -2,8 +2,43 @@ import type {Metadata} from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    title: "Alireza Yousefzadeh — Software Engineer",
+    metadataBase: new URL("https://33alireza.github.io/Me/"),
+    title: {
+        default: "Alireza Yousefzadeh — Software Engineer",
+        template: "%s | Alireza Yousefzadeh",
+    },
     description: "Software Engineer & Geek - Building high-quality web & mobile applications and contributing to open-source projects.",
+    openGraph: {
+        title: "Alireza Yousefzadeh — Software Engineer",
+        description: "Software Engineer & Geek - Building high-quality web & mobile applications and contributing to open-source projects.",
+        url: "https://33alireza.github.io/Me/",
+        siteName: "Alireza Yousefzadeh Portfolio",
+        images: [
+            {
+                url: "/Me/opengraph-image",
+                width: 1200,
+                height: 630,
+                alt: "Alireza Yousefzadeh — Software Engineer",
+            },
+        ],
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Alireza Yousefzadeh — Software Engineer",
+        description: "Software Engineer & Geek - Building high-quality web & mobile applications and contributing to open-source projects.",
+        creator: "@AlirezaYouDev",
+        images: ["/Me/opengraph-image"],
+    },
+    icons: {
+        icon: "/Me/icon.svg",
+        apple: "/Me/apple-icon",
+    },
+};
+
+export const viewport = {
+    themeColor: "#0049FF",
 };
 
 export default function RootLayout({
