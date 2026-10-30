@@ -1,9 +1,8 @@
+import { profile } from "@/data/profile";
+import { socials } from "@/data/socials";
+
 export default function Contact() {
-    const socials = [
-        { name: "GitHub", url: "https://github.com/33alireza" },
-        { name: "Twitter", url: "https://x.com/AlirezaYouDev" },
-        { name: "LinkedIn", url: "https://www.linkedin.com/in/33alireza" },
-    ];
+    const contactSocials = socials.filter((s) => ["GitHub", "Twitter / X", "LinkedIn"].includes(s.platform));
 
     return (
         <section id="contact" className="section reveal" style={{position: "relative", zIndex: 11}}>
@@ -19,22 +18,25 @@ export default function Contact() {
                     </p>
                     <a
                         className="contact-email-link"
-                        href="mailto:alireza.yousefzadeh.dev@gmail.com"
+                        href={`mailto:${profile.email}`}
                     >
                         Send an Email
                     </a>
                     <div className="socials-grid">
-                        {socials.map((s) => (
-                            <a
-                                key={s.name}
-                                className="social-pill"
-                                href={s.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {s.name}
-                            </a>
-                        ))}
+                        {contactSocials.map((s) => {
+                            const displayName = s.platform === "Twitter / X" ? "Twitter" : s.platform;
+                            return (
+                                <a
+                                    key={s.platform}
+                                    className="social-pill"
+                                    href={s.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {displayName}
+                                </a>
+                            );
+                        })}
                     </div>
                 </div>
                 <div>
@@ -50,8 +52,8 @@ export default function Contact() {
                         <div>
                             &nbsp;&nbsp;email:{" "}
                             <span style={{color: "#A4BFFF"}}>
-                &quot;alireza.yousefzadeh.dev@gmail.com&quot;
-              </span>
+                                &quot;{profile.email}&quot;
+                            </span>
                             ,
                         </div>
                         <div>
@@ -62,8 +64,8 @@ export default function Contact() {
                                     textShadow: "0 0 10px rgba(0,210,255,0.4)",
                                 }}
                             >
-                &quot;Open for opportunities&quot;
-              </span>
+                                &quot;{profile.availabilityStatus}&quot;
+                            </span>
                         </div>
                         <div>
                             <span className="term-brace">&#125;</span>

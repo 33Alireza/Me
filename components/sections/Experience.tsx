@@ -1,17 +1,9 @@
 import SectionHeader from "@/components/layout/SectionHeader";
 import Badge from "@/components/ui/Badge";
+import { experiences } from "@/data/experience";
 
 export default function Experience() {
-    const skills = [
-        "Kotlin",
-        "Kotlin Multiplatform",
-        "Compose Multiplatform",
-        "Ktor",
-        "Koin",
-        "Room",
-        "MVVM",
-        "CI/CD",
-    ];
+    const exp = experiences[0];
 
     return (
         <section id="experience" className="section reveal" style={{position: "relative", zIndex: 11}}>
@@ -20,29 +12,19 @@ export default function Experience() {
                 <div className="exp-card">
                     <div className="exp-header">
                         <div>
-                            <h3 className="exp-title">Mobile Developer</h3>
-                            <div className="exp-company">Mahan Informatic Inc.</div>
+                            <h3 className="exp-title">{exp.role}</h3>
+                            <div className="exp-company">{exp.company}</div>
                         </div>
-                        <div className="exp-period">2026 – Present</div>
+                        <div className="exp-period">{exp.period}</div>
                     </div>
                     <ul className="exp-list">
-                        <li>
-                            Architected and developed robust multi-module cross-platform applications using <strong>Kotlin
-                            Multiplatform (KMP)</strong> for both Android & iOS platforms.
-                        </li>
-                        <li>
-                            Implemented <strong>Clean Architecture</strong> and <strong>MVVM</strong> design patterns
-                            for scalable state management and clean separation of concerns.
-                        </li>
-                        <li>
-                            Successfully published and maintained production-grade applications on Google Play Store and
-                            Apple App Store, including <strong>TowingMate Android</strong> & <strong>TowingMate
-                            iOS</strong>.
-                        </li>
+                        {exp.bulletPoints.map((bp, i) => (
+                            <li key={i} dangerouslySetInnerHTML={{ __html: bp }} />
+                        ))}
                     </ul>
                     <div className="skill-list" style={{marginTop: "2.5rem"}}>
-                        {skills.map((skill) => (
-                            <Badge key={skill} variant="skill">{skill}</Badge>
+                        {exp.techTags.map((tag) => (
+                            <Badge key={tag} variant="skill">{tag}</Badge>
                         ))}
                     </div>
                 </div>

@@ -1,30 +1,13 @@
 import SectionHeader from "@/components/layout/SectionHeader";
 import Badge from "@/components/ui/Badge";
+import { projects } from "@/data/projects";
+import { socials } from "@/data/socials";
 
 export default function Projects() {
-    const projects = [
-        {
-            number: "Project 01",
-            title: "KotlinFinity",
-            description: "A repository dedicated to learning and mastering Kotlin, covering basics to advanced topics.",
-            url: "https://github.com/33Alireza/KotlinFinity",
-            delay: "reveal-delay-1",
-        },
-        {
-            number: "Project 02",
-            title: "Mobile Dev Roadmap",
-            description: "A comprehensive roadmap for mobile application development, covering Android and iOS platforms.",
-            url: "https://github.com/33Alireza/MobileDevRoadmap",
-            delay: "reveal-delay-2",
-        },
-        {
-            number: "Project 03",
-            title: "CodeHello",
-            description: "A collection of \"Hello World\" programs in various programming languages, showcasing syntax diversity.",
-            url: "https://github.com/33Alireza/CodeHello",
-            delay: "reveal-delay-3",
-        },
-    ];
+    const githubSocial = socials.find((s) => s.platform === "GitHub");
+    const githubUrl = githubSocial ? githubSocial.url : "https://github.com/33alireza";
+
+    const delays = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3"];
 
     return (
         <section id="projects" className="section reveal" style={{position: "relative", zIndex: 11}}>
@@ -32,14 +15,14 @@ export default function Projects() {
                 label="Projects"
                 title="Featured"
                 highlight="Projects"
-                actionHref="https://github.com/33alireza"
+                actionHref={githubUrl}
                 actionText="View All on GitHub"
             />
             <div className="projects-grid">
-                {projects.map((p) => (
+                {projects.map((p, index) => (
                     <a
-                        key={p.title}
-                        className={`proj-card reveal ${p.delay}`}
+                        key={p.id}
+                        className={`proj-card reveal ${delays[index % delays.length]}`}
                         href={p.url}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -48,7 +31,7 @@ export default function Projects() {
                         <div className="proj-title">{p.title}</div>
                         <div className="proj-desc">{p.description}</div>
                         <div className="proj-footer">
-                            <Badge variant="proj">GitHub Repository</Badge>
+                            <Badge variant="proj">{p.tags[0]}</Badge>
                         </div>
                     </a>
                 ))}
