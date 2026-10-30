@@ -9,6 +9,8 @@ import {
   SiGit,
   SiGithubactions,
   SiLinux,
+  SiNextdotjs,
+  SiTailwindcss,
 } from "react-icons/si";
 import {
   RetrofitIcon,
@@ -38,6 +40,8 @@ export const techIconRegistry: Record<string, React.FC<{ className?: string; sty
   room: RoomIcon,
   mvvm: MvvmIcon,
   "clean-architecture": CleanArchIcon,
+  nextjs: SiNextdotjs,
+  tailwindcss: SiTailwindcss,
   git: SiGit,
   "ci-cd": SiGithubactions,
   linux: SiLinux,
@@ -59,6 +63,8 @@ export const techBrandColors: Record<string, string> = {
   room: "#00E676",
   mvvm: "#00D2FF",
   "clean-architecture": "#00D2FF",
+  nextjs: "#F0F4FF",
+  tailwindcss: "#06B6D4",
   git: "#F05032",
   "ci-cd": "#2088FF",
   linux: "#FCC624",

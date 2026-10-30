@@ -28,6 +28,8 @@ export const skills: readonly Skill[] = [
     { id: "room", name: "Room", category: "library", iconKey: "room", brandColor: "#00E676" },
     { id: "mvvm", name: "MVVM", category: "library", iconKey: "mvvm", brandColor: "#00D2FF" },
     { id: "clean-architecture", name: "Clean Architecture", category: "library", iconKey: "clean-architecture", brandColor: "#00D2FF" },
+    { id: "nextjs", name: "Next.js", category: "library", iconKey: "nextjs", brandColor: "#F0F4FF" },
+    { id: "tailwindcss", name: "Tailwind CSS", category: "library", iconKey: "tailwindcss", brandColor: "#06B6D4" },
 
     // Tools and platforms
     { id: "git", name: "Git", category: "tool", iconKey: "git", brandColor: "#F05032" },
