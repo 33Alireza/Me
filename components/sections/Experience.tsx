@@ -1,6 +1,7 @@
 import SectionHeader from "@/components/layout/SectionHeader";
-import Badge from "@/components/ui/Badge";
+import TechBadge from "@/components/ui/TechBadge";
 import { experiences } from "@/data/experience";
+import { skills } from "@/data/skills";
 
 export default function Experience() {
     const exp = experiences[0];
@@ -22,10 +23,15 @@ export default function Experience() {
                             <li key={i} dangerouslySetInnerHTML={{ __html: bp }} />
                         ))}
                     </ul>
-                    <div className="skill-list" style={{marginTop: "2.5rem"}}>
-                        {exp.techTags.map((tag) => (
-                            <Badge key={tag} variant="skill">{tag}</Badge>
-                        ))}
+                    <div className="flex flex-wrap gap-2.5" style={{marginTop: "2.5rem"}}>
+                        {exp.techTags.map((tagName) => {
+                            const matchedSkill = skills.find((s) =>
+                                s.name.toLowerCase() === tagName.toLowerCase() ||
+                                s.id === tagName.toLowerCase()
+                            );
+                            const iconKey = matchedSkill ? matchedSkill.iconKey : "kotlin";
+                            return <TechBadge key={tagName} name={tagName} iconKey={iconKey} />;
+                        })}
                     </div>
                 </div>
             </div>

@@ -1,11 +1,12 @@
 import Button from "@/components/ui/Button";
 import { profile } from "@/data/profile";
+import { skills } from "@/data/skills";
 
 export default function Hero() {
     const terminalData = {
         name: profile.name,
         role: profile.role,
-        skills: ["Kotlin", "Jetpack Compose", "KMP", "CMP", "Ktor", "Retrofit", "Dagger/Hilt", "MVVM"],
+        skills: skills.map((s) => s.name),
         openSourceContributor: true,
         status: profile.availabilityStatus,
     };

@@ -3,8 +3,10 @@ export const profile = {
     role: "Software Engineer",
     tagline: "Making scalable mobile applications",
     bioParagraphs: [
-        "I am a passionate <strong>software engineer</strong> with experience building mobile applications. I enjoy solving complex problems and creating elegant solutions.",
-        "When I'm not coding, you can find me exploring new technologies or contributing to <strong>open-source projects</strong> on GitHub.",
+        "Hi my name is <strong>Alireza</strong>, my journey started when my instructor forced me to use Notepad++ for coding and told me if I implement the project properly he&apos;s gonna let me use PHPStorm.",
+        "That was the first time something happened inside me, before that I never liked <strong>coding</strong>, I just did what I had to.",
+        "After searching I realised that the company who build PHPStorm has also a great programming language with an incredible ecosystem.",
+        "That was when I fell in love with <strong>Kotlin</strong> ecosystem, since then all I ever wanted to do is messing around with <strong>Kotlin</strong> and its ecosystem.",
     ],
     email: "alireza.yousefzadeh.dev@gmail.com",
     availabilityStatus: "Open for opportunities",
