@@ -11,6 +11,12 @@
     --code-blue-light: #00d2ff;
     --neon-glow: rgba(0, 73, 255, 0.4);
     --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    --duration-fast: 150ms;
+    --duration-base: 300ms;
+    --duration-slow: 600ms;
+    --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-hover: cubic-bezier(0.4, 0, 0.2, 1);
+    --stagger-step: 60ms;
 }
 
 [data-theme="light"] {
@@ -162,6 +168,13 @@ main {
     margin: 0 auto;
     padding: 8rem 2rem;
     position: relative;
+    scroll-margin-top: 100px;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+}
+
+section#hero {
+    content-visibility: visible;
 }
 
 .label {
@@ -914,28 +927,60 @@ footer {
     color: var(--code-blue-light);
 }
 
-/* Smooth Scroll Reveal Animations */
-.reveal {
+/* Smooth Scroll Reveal Animations & Motion System */
+.reveal, .reveal-base {
     opacity: 0;
-    transform: translateY(35px);
-    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(30px);
+    transition: opacity var(--duration-slow) var(--ease-entrance), transform var(--duration-slow) var(--ease-entrance);
+    will-change: opacity, transform;
 }
 
-.reveal.active {
+.reveal.active, .reveal-base.active {
     opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.reveal-fade {
     transform: translateY(0);
 }
 
+.reveal-scale {
+    transform: scale(0.95);
+}
+
 .reveal-delay-1 {
-    transition-delay: 0.15s;
+    transition-delay: var(--duration-base);
 }
 
 .reveal-delay-2 {
-    transition-delay: 0.3s;
+    transition-delay: calc(var(--duration-base) * 2);
 }
 
 .reveal-delay-3 {
-    transition-delay: 0.45s;
+    transition-delay: calc(var(--duration-base) * 3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-base, .reveal.active, .reveal-base.active {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+    .nebula-glow, .nebula-cyan, .status-dot, .term-cursor {
+        animation: none !important;
+    }
+}
+
+@media (max-width: 768px), (hover: none) {
+    .terminal, .stat-card, .proj-card, .platform-card, nav, footer, .contact-illustration, .hero-status {
+        backdrop-filter: none !important;
+        background: var(--card);
+    }
+    .nebula-glow, .nebula-cyan {
+        filter: blur(40px) !important;
+        opacity: 0.4;
+    }
 }
 
 [data-theme="light"] .link-arrow {
