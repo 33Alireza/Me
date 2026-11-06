@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { profile } from "@/data/profile";
 import { socials } from "@/data/socials";
+import { getAssetPath } from "@/lib/asset";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "Alireza Yousefzadeh Portfolio",
     images: [
       {
-        url: "/opengraph-image",
+        url: getAssetPath("/opengraph-image"),
         width: 1200,
         height: 630,
         alt: "Alireza Yousefzadeh — Software Engineer",
@@ -37,11 +38,11 @@ export const metadata: Metadata = {
     description:
       "Software Engineer & Geek - Building high-quality web & mobile applications and contributing to open-source projects.",
     creator: "@AlirezaYouDev",
-    images: ["/opengraph-image"],
+    images: [getAssetPath("/opengraph-image")],
   },
   icons: {
-    icon: "/icon.svg",
-    apple: "/apple-icon",
+    icon: getAssetPath("/icon.svg"),
+    apple: getAssetPath("/apple-icon"),
   },
 };
 
