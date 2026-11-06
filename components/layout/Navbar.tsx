@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { certificates } from "@/data/certificates";
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,6 +18,8 @@ export default function Navbar() {
         document.documentElement.setAttribute("data-theme", nextTheme);
     };
 
+    const showCertificates = certificates && certificates.length > 0;
+
     return (
         <>
             <nav style={{zIndex: 100}}>
@@ -27,6 +30,7 @@ export default function Navbar() {
                     <a href="#about">About</a>
                     <a href="#experience">Experience</a>
                     <a href="#projects">Projects</a>
+                    {showCertificates && <a href="#certificates">Certificates</a>}
                     <a href="#social">Social</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -58,6 +62,7 @@ export default function Navbar() {
                     <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
                     <a href="#experience" onClick={() => setMobileMenuOpen(false)}>Experience</a>
                     <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</a>
+                    {showCertificates && <a href="#certificates" onClick={() => setMobileMenuOpen(false)}>Certificates</a>}
                     <a href="#social" onClick={() => setMobileMenuOpen(false)}>Social</a>
                     <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
                 </div>
