@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/asset";
 
 interface ProjectImageGalleryProps {
   images: string[];
@@ -17,7 +18,7 @@ export default function ProjectImageGallery({
 
   if (!images || images.length === 0) return null;
 
-  const currentImage = images[currentIndex];
+  const currentImage = getAssetPath(images[currentIndex]);
 
   return (
     <>
@@ -57,7 +58,7 @@ export default function ProjectImageGallery({
                 }`}
               >
                 <Image
-                  src={img}
+                  src={getAssetPath(img)}
                   alt={`Thumbnail ${idx + 1}`}
                   fill
                   className="object-cover object-top"
@@ -114,7 +115,7 @@ export default function ProjectImageGallery({
                     }`}
                   >
                     <Image
-                      src={img}
+                      src={getAssetPath(img)}
                       alt={`Thumbnail ${idx + 1}`}
                       fill
                       className="object-cover object-top"
