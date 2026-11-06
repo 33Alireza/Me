@@ -34,17 +34,17 @@ export const projects: readonly ProjectItem[] = [
         ],
     },
     {
-        id: "me",
+        id: "towingmate",
         number: "Project 02",
-        title: "Me (Portfolio)",
-        description: "Personal portfolio built with Next.js, TypeScript and Tailwind CSS.",
-        tags: ["nextjs", "typescript", "tailwindcss"],
-        status: "Completed",
+        title: "TowingMate",
+        description: "TowingMate (also registered as TowingTask) is an enterprise-grade, multi-platform dispatching and fleet management solution engineered with Kotlin Multiplatform (KMP) and Compose Multiplatform. Designed specifically for towing providers, dispatch centers, drivers, and fleet managers, TowingMate streamlines the end-to-end tow job lifecycle—from instant job creation and automated driver dispatch to real-time interactive mapping, status updates, condition photo capture, driver commission tracking, and comprehensive accounting & invoicing.",
+        tags: ["kmp", "cmp", "ktor", "koin", "mvvm"],
+        status: "Live",
         featured: true,
-        links: {
-            github: "https://github.com/33Alireza/Me",
-            live: "https://33alireza.github.io/Me/",
-        },
+        links: {},
+        images: [
+            "/towingmate.png",
+        ],
     },
     {
         id: "kotlinfinity",
