@@ -1,6 +1,7 @@
 import SectionHeader from "@/components/layout/SectionHeader";
 import TechBadge from "@/components/ui/TechBadge";
 import ProjectImageGallery from "@/components/ui/ProjectImageGallery";
+import ViewAllButton from "@/components/ui/ViewAllButton";
 import { projects } from "@/data/projects";
 import { socials } from "@/data/socials";
 
@@ -26,8 +27,7 @@ export default function Projects() {
                 label="Projects"
                 title="Featured"
                 highlight="Projects"
-                actionHref={githubUrl}
-                actionText="View All on GitHub"
+                action={<ViewAllButton href={githubUrl} />}
             />
 
             {/* Featured Projects Grid (2 columns) */}
@@ -98,14 +98,14 @@ export default function Projects() {
                             </div>
 
                             {/* Action Buttons */}
-                            <div className="flex items-center gap-3 pt-4 border-t border-[var(--border)]">
+                            <div className="flex items-center gap-3 pt-4 border-t border-[var(--border)] flex-wrap">
                                 {p.links.github && (
                                     <a
                                         href={p.links.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label={`${p.title} on GitHub`}
-                                        className="btn-primary py-2.5 px-4 text-xs"
+                                        className="btn-primary py-2.5 px-4 text-xs min-h-[44px] flex items-center justify-center"
                                     >
                                         <i className="fa-brands fa-github text-sm"></i> GitHub
                                     </a>
@@ -116,7 +116,7 @@ export default function Projects() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label={`${p.title} Live Demo`}
-                                        className="btn-ghost py-2.5 px-4 text-xs"
+                                        className="btn-ghost py-2.5 px-4 text-xs min-h-[44px] flex items-center justify-center"
                                     >
                                         <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i> Live
                                     </a>
@@ -127,7 +127,7 @@ export default function Projects() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label={`${p.title} on Store`}
-                                        className="btn-ghost py-2.5 px-4 text-xs"
+                                        className="btn-ghost py-2.5 px-4 text-xs min-h-[44px] flex items-center justify-center"
                                     >
                                         <i className="fa-solid fa-store text-xs"></i> Store
                                     </a>
@@ -179,7 +179,7 @@ export default function Projects() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label={`${p.title} on GitHub`}
-                                        className="inline-flex items-center gap-2 font-['Space_Mono',monospace] text-xs text-[var(--code-blue-light)] hover:text-[var(--text)] transition-colors"
+                                        className="inline-flex items-center gap-2 font-['Space_Mono',monospace] text-xs text-[var(--code-blue-light)] hover:text-[var(--text)] transition-colors min-h-[44px] py-2"
                                     >
                                         <i className="fa-brands fa-github"></i> View Repository →
                                     </a>
@@ -188,6 +188,11 @@ export default function Projects() {
                         </div>
                     );
                 })}
+            </div>
+
+            {/* Mobile View All on GitHub button (shown under 640px only) */}
+            <div className="mt-8 sm:hidden flex justify-center w-full">
+                <ViewAllButton href={githubUrl} className="w-full justify-center min-h-[44px]" />
             </div>
         </section>
     );

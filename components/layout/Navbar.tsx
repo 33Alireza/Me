@@ -20,7 +20,7 @@ export default function Navbar() {
     return (
         <>
             <nav style={{zIndex: 100}}>
-                <a className="nav-logo text-[10px] xs:text-xs sm:text-sm tracking-tight whitespace-nowrap" href="#top">
+                <a className="nav-logo text-[11px] sm:text-sm tracking-tight whitespace-nowrap min-h-[44px] flex items-center" href="#top">
                     Alireza Yousefzadeh
                 </a>
                 <div className="nav-links hidden md:flex">
@@ -33,7 +33,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-1">
                     <button
                         onClick={toggleTheme}
-                        className="theme-toggle-btn p-1.5"
+                        className="theme-toggle-btn p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl"
                         aria-label="Toggle theme"
                         title={`Switch to ${theme === "dark" ? "Light" : "Dark"} mode`}
                     >
@@ -45,7 +45,7 @@ export default function Navbar() {
                     </button>
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="md:hidden text-[var(--text)] text-lg p-2 focus:outline-none"
+                        className="md:hidden text-[var(--text)] text-lg p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center focus:outline-none rounded-xl"
                         aria-label="Toggle mobile menu"
                     >
                         <i className={`fa-solid ${mobileMenuOpen ? "fa-xmark" : "fa-bars"}`}></i>

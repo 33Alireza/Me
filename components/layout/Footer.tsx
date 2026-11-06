@@ -15,6 +15,7 @@ export default function Footer() {
                     href={github}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="min-h-[44px] flex items-center"
                 >
                     GitHub
                 </a>
@@ -22,6 +23,7 @@ export default function Footer() {
                     href={twitter}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="min-h-[44px] flex items-center"
                 >
                     Twitter
                 </a>

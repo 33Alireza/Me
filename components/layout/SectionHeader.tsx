@@ -1,10 +1,12 @@
 import React from "react";
 import { cn } from "@/lib/cn";
+import ViewAllButton from "@/components/ui/ViewAllButton";
 
 interface SectionHeaderProps {
   label: string;
   title: string;
   highlight: string;
+  action?: React.ReactNode;
   actionHref?: string;
   actionText?: string;
   className?: string;
@@ -14,10 +16,17 @@ export default function SectionHeader({
   label,
   title,
   highlight,
+  action,
   actionHref,
   actionText,
   className,
 }: SectionHeaderProps) {
+  const resolvedAction =
+    action ||
+    (actionHref && actionText ? (
+      <ViewAllButton href={actionHref}>{actionText}</ViewAllButton>
+    ) : null);
+
   return (
     <div className={cn("section-header", className)}>
       <div>
@@ -26,15 +35,10 @@ export default function SectionHeader({
           {title} <span>{highlight}</span>
         </h2>
       </div>
-      {actionHref && actionText && (
-        <a
-          className="view-all"
-          href={actionHref}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {actionText}
-        </a>
+      {resolvedAction && (
+        <div className="hidden sm:block">
+          {resolvedAction}
+        </div>
       )}
     </div>
   );

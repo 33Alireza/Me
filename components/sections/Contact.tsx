@@ -17,7 +17,7 @@ export default function Contact() {
                         out to me through any of the channels below.
                     </p>
                     <a
-                        className="contact-email-link"
+                        className="contact-email-link min-h-[44px] flex items-center justify-center"
                         href={`mailto:${profile.email}`}
                     >
                         Send an Email
@@ -28,7 +28,7 @@ export default function Contact() {
                             return (
                                 <a
                                     key={s.platform}
-                                    className="social-pill"
+                                    className="social-pill min-h-[44px] flex items-center justify-center"
                                     href={s.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
