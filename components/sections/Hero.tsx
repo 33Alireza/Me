@@ -1,18 +1,8 @@
 import Button from "@/components/ui/Button";
 import { profile } from "@/data/profile";
-import { skills } from "@/data/skills";
+import Terminal from "@/components/terminal/Terminal";
 
 export default function Hero() {
-    const terminalData = {
-        name: profile.name,
-        role: profile.role,
-        skills: skills.map((s) => s.name),
-        openSourceContributor: true,
-        status: profile.availabilityStatus,
-    };
-
-    const formattedJson = JSON.stringify(terminalData, null, 2);
-
     return (
         <section id="hero" className="section reveal" style={{position: "relative", zIndex: 11}}>
             <div className="hero-grid">
@@ -41,29 +31,7 @@ export default function Hero() {
                     </div>
                 </div>
                 <div className="parallax-wrap">
-                    <div className="terminal">
-                        <div className="term-bar">
-                            <div className="term-dots">
-                                <span className="term-dot"></span>
-                                <span className="term-dot"></span>
-                                <span className="term-dot"></span>
-                            </div>
-                            <span className="term-title">alireza@portfolio:~</span>
-                        </div>
-                        <div className="term-body">
-                            <span className="term-line">
-                                <span className="term-prompt">~$ </span>
-                                <span className="term-key">cat</span> profile.json
-                            </span>
-                            <span className="term-line">&nbsp;</span>
-                            <pre className="text-xs sm:text-sm font-['Space_Mono',monospace] text-[var(--text)] whitespace-pre overflow-x-auto leading-relaxed">
-                                {formattedJson}
-                            </pre>
-                            <span className="term-line">
-                                <span className="term-cursor"></span>
-                            </span>
-                        </div>
-                    </div>
+                    <Terminal />
                 </div>
             </div>
         </section>
