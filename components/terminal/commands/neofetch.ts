@@ -2,10 +2,10 @@ import { profile } from "@/data/profile";
 import { CommandDefinition } from "../types";
 
 export const neofetchCommand: CommandDefinition = {
-    name: "neofetch",
-    description: "Display system summary with ASCII art",
-    run: () => {
-        return `
+  name: "neofetch",
+  description: "Display system summary with ASCII art",
+  run: () => {
+    return `
     /\\     ${profile.name}
    /  \\    ------------------
   /\\ /\\    Role: ${profile.role}
@@ -15,5 +15,5 @@ export const neofetchCommand: CommandDefinition = {
             Shell: bash 5.2.15
             Uptime: 99.9% uptime
         `.trim();
-    },
+  },
 };

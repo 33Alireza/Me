@@ -24,7 +24,10 @@ import {
   KtorIcon,
 } from "@/components/icons";
 
-export const techIconRegistry: Record<string, React.FC<{ className?: string; style?: React.CSSProperties }>> = {
+export const techIconRegistry: Record<
+  string,
+  React.FC<{ className?: string; style?: React.CSSProperties }>
+> = {
   kotlin: SiKotlin,
   swift: SiSwift,
   typescript: SiTypescript,

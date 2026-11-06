@@ -6,7 +6,12 @@ interface ButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode;
 }
 
-export default function Button({ variant = "primary", children, className, ...props }: ButtonProps) {
+export default function Button({
+  variant = "primary",
+  children,
+  className,
+  ...props
+}: ButtonProps) {
   const classNameMap = {
     primary: "btn-primary",
     ghost: "btn-ghost",

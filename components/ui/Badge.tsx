@@ -7,16 +7,16 @@ interface BadgeProps {
   className?: string;
 }
 
-export default function Badge({ children, variant = "skill", className }: BadgeProps) {
+export default function Badge({
+  children,
+  variant = "skill",
+  className,
+}: BadgeProps) {
   const variantMap = {
     skill: "skill",
     platform: "platform-badge",
     proj: "proj-tag",
   };
 
-  return (
-    <span className={cn(variantMap[variant], className)}>
-      {children}
-    </span>
-  );
+  return <span className={cn(variantMap[variant], className)}>{children}</span>;
 }

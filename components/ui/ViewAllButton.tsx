@@ -19,7 +19,7 @@ export default function ViewAllButton({
       rel="noopener noreferrer"
       className={cn(
         "view-all inline-flex items-center justify-center min-h-[44px] px-6 py-3 text-xs sm:text-sm font-['Space_Mono',monospace]",
-        className
+        className,
       )}
       {...props}
     >

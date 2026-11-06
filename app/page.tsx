@@ -8,15 +8,15 @@ import Contact from "@/components/sections/Contact";
 import PortfolioBackground from "@/components/layout/PortfolioBackground";
 
 export default function Home() {
-    return (
-        <PortfolioBackground>
-            <Hero />
-            <About />
-            <Experience />
-            <Projects />
-            <Certificates />
-            <Social />
-            <Contact />
-        </PortfolioBackground>
-    );
+  return (
+    <PortfolioBackground>
+      <Hero />
+      <About />
+      <Experience />
+      <Projects />
+      <Certificates />
+      <Social />
+      <Contact />
+    </PortfolioBackground>
+  );
 }

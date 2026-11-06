@@ -9,10 +9,24 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
-export default function Card({ as = "div", href, target, rel, children, className, ...props }: CardProps) {
+export default function Card({
+  as = "div",
+  href,
+  target,
+  rel,
+  children,
+  className,
+  ...props
+}: CardProps) {
   if (as === "a" && href) {
     return (
-      <a href={href} target={target} rel={rel} className={cn(className)} {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}>
+      <a
+        href={href}
+        target={target}
+        rel={rel}
+        className={cn(className)}
+        {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+      >
         {children}
       </a>
     );

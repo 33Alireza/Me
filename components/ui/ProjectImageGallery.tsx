@@ -8,7 +8,10 @@ interface ProjectImageGalleryProps {
   title: string;
 }
 
-export default function ProjectImageGallery({ images, title }: ProjectImageGalleryProps) {
+export default function ProjectImageGallery({
+  images,
+  title,
+}: ProjectImageGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
@@ -53,7 +56,12 @@ export default function ProjectImageGallery({ images, title }: ProjectImageGalle
                     : "border-[var(--border)] opacity-70 hover:opacity-100"
                 }`}
               >
-                <Image src={img} alt={`Thumbnail ${idx + 1}`} fill className="object-cover object-top" />
+                <Image
+                  src={img}
+                  alt={`Thumbnail ${idx + 1}`}
+                  fill
+                  className="object-cover object-top"
+                />
               </button>
             ))}
           </div>
@@ -100,10 +108,17 @@ export default function ProjectImageGallery({ images, title }: ProjectImageGalle
                     onClick={() => setCurrentIndex(idx)}
                     aria-label={`Select screenshot ${idx + 1}`}
                     className={`relative w-20 h-14 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
-                      currentIndex === idx ? "border-[var(--code-blue-light)] scale-110 shadow-lg" : "border-white/20 opacity-60 hover:opacity-100"
+                      currentIndex === idx
+                        ? "border-[var(--code-blue-light)] scale-110 shadow-lg"
+                        : "border-white/20 opacity-60 hover:opacity-100"
                     }`}
                   >
-                    <Image src={img} alt={`Thumbnail ${idx + 1}`} fill className="object-cover object-top" />
+                    <Image
+                      src={img}
+                      alt={`Thumbnail ${idx + 1}`}
+                      fill
+                      className="object-cover object-top"
+                    />
                   </button>
                 ))}
               </div>

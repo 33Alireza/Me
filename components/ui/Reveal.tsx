@@ -24,7 +24,9 @@ export default function Reveal({
     const el = ref.current;
     if (!el) return;
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     if (prefersReducedMotion) {
       el.classList.add("active");
       return;
@@ -39,7 +41,7 @@ export default function Reveal({
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
     );
 
     observer.observe(el);
@@ -51,8 +53,8 @@ export default function Reveal({
 
   const variantClass = {
     "fade-up": "reveal-fade-up",
-    "fade": "reveal-fade",
-    "scale": "reveal-scale",
+    fade: "reveal-fade",
+    scale: "reveal-scale",
   }[variant];
 
   const style = delay > 0 ? { transitionDelay: `${delay}ms` } : undefined;
@@ -64,6 +66,6 @@ export default function Reveal({
       className: cn("reveal-base", variantClass, className),
       style,
     },
-    children
+    children,
   );
 }

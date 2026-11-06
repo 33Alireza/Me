@@ -36,9 +36,7 @@ export default function SectionHeader({
         </h2>
       </div>
       {resolvedAction && (
-        <div className="hidden sm:block">
-          {resolvedAction}
-        </div>
+        <div className="hidden sm:block">{resolvedAction}</div>
       )}
     </div>
   );
