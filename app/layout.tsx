@@ -1,4 +1,4 @@
-import type {Metadata} from "next";
+import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -47,8 +47,21 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" className="scroll-smooth">
+        <html lang="en" className="scroll-smooth" suppressHydrationWarning>
         <head>
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        (function() {
+                            try {
+                                var storedTheme = localStorage.getItem('portfolio-theme');
+                                var theme = storedTheme || 'dark';
+                                document.documentElement.setAttribute('data-theme', theme);
+                            } catch (e) {}
+                        })();
+                    `,
+                }}
+            />
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
             {/* eslint-disable-next-line @next/next/no-page-custom-font */}
@@ -58,7 +71,7 @@ export default function RootLayout({
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
         </head>
         <body
-            className="bg-[#020205] text-[#F0F4FF] font-['Syne',sans-serif] antialiased overflow-x-hidden selection:bg-[#0049FF] selection:text-white">
+            className="bg-[var(--bg)] text-[var(--text)] font-['Syne',sans-serif] antialiased overflow-x-hidden selection:bg-[#0049FF] selection:text-white">
         {children}
         </body>
         </html>

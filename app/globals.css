@@ -1067,3 +1067,15 @@ footer {
 .exp-list strong {
     color: var(--text);
 }
+
+@media (hover: hover) {
+    .proj-card, .stat-card, .platform-card, .exp-card {
+        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
+    }
+    .proj-card:hover, .stat-card:hover, .platform-card:hover, .exp-card:hover {
+        transform: translateY(-6px) scale(1.01);
+    }
+    .btn-primary:active, .btn-ghost:active, .social-pill:active, .theme-toggle-btn:active {
+        transform: scale(0.97);
+    }
+}
