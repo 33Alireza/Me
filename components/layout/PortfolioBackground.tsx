@@ -29,6 +29,12 @@ export default function PortfolioBackground({ children, hasResume, resumeHref }:
 
   return (
     <div className="min-h-screen transition-colors duration-500">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-[var(--code-blue)] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg font-['Space_Mono',monospace] text-xs shadow-xl"
+      >
+        Skip to content
+      </a>
       <ScrollProgress />
       <EasterEggListener />
       <canvas id="tech-canvas" className="absolute top-0 left-0 w-full pointer-events-none z-1"></canvas>
@@ -37,7 +43,7 @@ export default function PortfolioBackground({ children, hasResume, resumeHref }:
 
       <Navbar hasResume={hasResume} resumeHref={resumeHref} />
 
-      <main style={{position: "relative", zIndex: 10}}>
+      <main id="main-content" style={{position: "relative", zIndex: 10}}>
         <div className="nebula-glow" style={{top: "5%", left: "55%"}}></div>
         <div className="nebula-cyan" style={{top: "45%", left: "-15%"}}></div>
         <div className="nebula-glow" style={{top: "75%", left: "65%"}}></div>

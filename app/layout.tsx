@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { profile } from "@/data/profile";
+import { socials } from "@/data/socials";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -8,6 +10,9 @@ export const metadata: Metadata = {
         template: "%s | Alireza Yousefzadeh",
     },
     description: "Software Engineer & Geek - Building high-quality web & mobile applications and contributing to open-source projects.",
+    alternates: {
+        canonical: "https://33alireza.github.io/Me/",
+    },
     openGraph: {
         title: "Alireza Yousefzadeh — Software Engineer",
         description: "Software Engineer & Geek - Building high-quality web & mobile applications and contributing to open-source projects.",
@@ -46,9 +51,22 @@ export default function RootLayout({
                                    }: {
     children: React.ReactNode;
 }) {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": profile.name,
+        "jobTitle": profile.role,
+        "url": "https://33alireza.github.io/Me/",
+        "sameAs": socials.map((s) => s.url),
+    };
+
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
         <head>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <script
                 dangerouslySetInnerHTML={{
                     __html: `
